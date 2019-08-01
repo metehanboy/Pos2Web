@@ -24,5 +24,6 @@ namespace Pos2Web
         {
             InitializeComponent();
         }
+
     }
 }

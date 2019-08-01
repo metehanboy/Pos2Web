@@ -39,4 +39,8 @@
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
     <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}" />
 
+    <sys:Double x:Key="FontSizeRegular">20</sys:Double>
+    <sys:Double x:Key="FontSizeSmall">14</sys:Double>
+    <sys:Double x:Key="FontSizeLarge">30</sys:Double>
+
 </ResourceDictionary>

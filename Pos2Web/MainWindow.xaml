@@ -101,10 +101,15 @@
                                     </Border>
                                     
                                     <!--Page Content-->
-                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
-                                        <ContentPresenter Content="{TemplateBinding Content}" />
-                                    </Border>
+                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}" Background="{StaticResource WordBlueBrush}">
+                                        <Border>
+                                            <Border.Background>
+                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 400 400" ImageSource="Resources/images/Background/tile.png" />
+                                            </Border.Background>
+                                            <ContentPresenter Content="{TemplateBinding Content}" />
 
+                                        </Border>
+                                    </Border>
                                 </Grid>
                             </Grid>
                         </Border>
@@ -125,7 +130,7 @@
             />
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource BackgroundLightBrush}">
+    <Grid>
         <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>

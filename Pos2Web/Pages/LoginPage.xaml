@@ -4,11 +4,57 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pos2Web"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d"
       Title="LoginPage">
 
+
+
     <Grid>
-        
+
+        <!--Ana pencere scroll edilebilir içerik-->
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        TextBlock.TextAlignment="Center">
+
+                <!-- Giriş Penceresi Beyaz-->
+                <Border Background="{StaticResource ForegroundLightBrush}"
+                        CornerRadius="10"
+                        Width="260"
+                        Padding="50 5 50 5"
+                        Margin="0 5">
+                    <StackPanel>
+                        <!--Başlık-->
+                        <TextBlock Text="Giriş"
+                               FontSize="{StaticResource FontSizeLarge}"
+                               FontFamily="{StaticResource regular}"
+                               Foreground="{StaticResource WordBlueBrush}" />
+                        <!--alt başlık-->
+                        <TextBlock Text="by&#10; Pos2Web" 
+                                   FontFamily="{StaticResource regular}"
+                                   FontSize="10"
+                                   Foreground="{StaticResource ForegroundDarkBrush}"
+                                   />
+                        <!--Kullanıcı Adı-->
+                        <TextBox Tag="Kullanıcı Adı"/>
+                        <!--Şifre-->
+                        <PasswordBox Tag="Parola"/>
+                        <!--Şube ID-->
+                        <TextBox Tag="Şube ID"/>
+                        <!--Giriş Button-->
+                        <Button Content="ileri" 
+                                FontFamily="{StaticResource regular}"
+                                HorizontalAlignment="Center" />
+
+
+                    </StackPanel>
+
+
+                </Border>
+
+                <!--Yeni Hesap İste-->
+                <Button Style="{StaticResource TextButton}" HorizontalAlignment="Center" Content="sende hemen şubeni yönet" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
