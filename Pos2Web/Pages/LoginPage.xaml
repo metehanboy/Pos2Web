@@ -1,4 +1,4 @@
-﻿<local:BasePage x:Class="Pos2Web.LoginPage"
+﻿<Page x:Class="Pos2Web.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -44,8 +44,8 @@
                         <!--Giriş Button-->
                         <Button Content="ileri" 
                                 FontFamily="{StaticResource regular}"
-                                HorizontalAlignment="Center" Click="Button_Click" />
-                                
+                                HorizontalAlignment="Center" />
+
 
                     </StackPanel>
 
@@ -57,4 +57,4 @@
             </StackPanel>
         </ScrollViewer>
     </Grid>
-</local:BasePage>
+</Page>
