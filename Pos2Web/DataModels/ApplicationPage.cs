@@ -4,5 +4,7 @@
     {
         Login = 0,
 
+        Status = 1
+
     }
 }

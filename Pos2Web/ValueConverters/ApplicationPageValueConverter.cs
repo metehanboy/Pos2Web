@@ -13,6 +13,8 @@ namespace Pos2Web
             {
                 case ApplicationPage.Login:
                     return new LoginPage();
+                case ApplicationPage.Status:
+                    return new StatusPage();
 
 
                 default:

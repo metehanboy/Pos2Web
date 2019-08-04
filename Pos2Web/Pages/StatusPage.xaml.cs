@@ -17,15 +17,14 @@ using System.Windows.Shapes;
 namespace Pos2Web
 {
     /// <summary>
-    /// LoginPage.xaml etkileşim mantığı
+    /// 
     /// </summary>
-    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class StatusPage : BasePage<LoginViewModel>
     {
-        public LoginPage()
+        public StatusPage()
         {
             InitializeComponent();
         }
 
-        public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }

@@ -3,14 +3,17 @@ using System.Windows.Input;
 
 namespace Pos2Web
 {
-    public class RelayCommand : ICommand
+    /// <summary>
+    /// A basic command that runs an Action
+    /// </summary>
+    public class RelayParameterizedCommand : ICommand
     {
         #region Private Members
 
         /// <summary>
         /// The action to run
         /// </summary>
-        private Action mAction;
+        private Action<object> mAction;
 
         #endregion
 
@@ -28,7 +31,7 @@ namespace Pos2Web
         /// <summary>
         /// Default constructor
         /// </summary>
-        public RelayCommand(Action action)
+        public RelayParameterizedCommand(Action<object> action)
         {
             mAction = action;
         }
@@ -53,7 +56,7 @@ namespace Pos2Web
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            mAction();
+            mAction(parameter);
         }
 
         #endregion

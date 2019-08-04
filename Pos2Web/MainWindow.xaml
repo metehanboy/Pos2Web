@@ -1,4 +1,4 @@
-﻿<Window x:Class="Pos2Web.MainWindow"
+﻿      <Window x:Class="Pos2Web.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,9 +32,11 @@
                                 <!--Pencere Kenarları ve Gölgeli-->
                                 <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
                                         Background="{Binding ForegroundLightBrush, FallbackValue=White}">
+                                    
                                     <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.5"/>
                                     </Border.Effect>
+                                    
                                 </Border>
                                 
                                 
@@ -49,8 +51,7 @@
                                     <Grid.RowDefinitions>
                                         <!--başlık çubuğu-->
                                         <RowDefinition Height="{Binding TitleHeightGridLength,FallbackValue=42}" />
-                                        <!--Drop Shadow-->
-                                        <RowDefinition Height="Auto" />
+
                                         <!--Window Content-->
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
@@ -81,30 +82,13 @@
                                             <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="&#xf2f0;" />
                                         </StackPanel>
                                     </Grid>
-                                    <!--DropShadow-->
-                                    <Border Grid.Row="1" Height="2" BorderThickness="0 0.2 0 0">
-                                        <!--Underline-->
-                                        <Border.BorderBrush>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="0.0" />
-                                                <GradientStop Color="{StaticResource ForegroundMain}" Offset="0.5" />
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0" />
-                                            </LinearGradientBrush>
-                                        </Border.BorderBrush>
-                                        <!--DropShadow-->
-                                        <Border.Background>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                <GradientStop Color="{StaticResource BackgroundVeryLight}" Offset="0.0" />
-                                                <GradientStop Color="{StaticResource ForegroundLight}" Offset="1.0" />
-                                            </LinearGradientBrush>
-                                        </Border.Background>
-                                    </Border>
+
                                     
                                     <!--Page Content-->
-                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}" Background="{StaticResource WordBlueBrush}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" Background="{StaticResource WordBlueBrush}">
                                         <Border>
                                             <Border.Background>
-                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 400 400" ImageSource="Resources/images/Background/tile.png" />
+                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 400 400" ImageSource="Resources/images/Background/appbg.png" />
                                             </Border.Background>
                                             <ContentPresenter Content="{TemplateBinding Content}" />
 
@@ -131,6 +115,17 @@
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="5*" /> 
+        </Grid.ColumnDefinitions>
+        
+        <Frame Grid.Column="1" x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+
+        <Border Background="{StaticResource ForegroundLightBrush}">
+            
+        </Border>
+        
     </Grid>
 </Window>

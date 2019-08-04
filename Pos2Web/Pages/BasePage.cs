@@ -6,9 +6,12 @@ using System.Windows.Media.Animation;
 
 namespace Pos2Web
 {
-    public class BasePage : Page
+    public class BasePage<VM> : Page
+        where VM : BaseViewModel, new()
     {
         #region private properties
+
+        private VM mViewModel;
 
         #endregion
 
@@ -20,9 +23,23 @@ namespace Pos2Web
 
         public float SlideSeconds { get; set; } = 0.8f;
 
+        public VM ViewModel
+        {
+            get { return mViewModel; }
+            set
+            {
+                if (mViewModel == value)
+                    return;
+
+                mViewModel = value;
+
+                this.DataContext = mViewModel;
+            }
+        }
+
         #endregion
 
-        #region Constructor
+            #region Constructor
 
         public BasePage()
         {
@@ -30,6 +47,8 @@ namespace Pos2Web
                 this.Visibility = Visibility.Collapsed;
 
             this.Loaded += BasePage_Loaded;
+
+            this.ViewModel = new VM();
         }
 
 

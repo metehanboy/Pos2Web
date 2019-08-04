@@ -1,9 +1,10 @@
-﻿<local:BasePage x:Class="Pos2Web.LoginPage"
+﻿<local:BasePage x:TypeArguments="local:LoginViewModel" x:Class="Pos2Web.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Pos2Web"
+      x:Name="Page"
       mc:Ignorable="d"
       Title="LoginPage">
 
@@ -36,15 +37,18 @@
                                    Foreground="{StaticResource ForegroundDarkBrush}"
                                    />
                         <!--Kullanıcı Adı-->
-                        <TextBox Tag="Kullanıcı Adı"/>
+                        <TextBox Tag="Kullanıcı Adı" Text="{Binding Username}"/>
                         <!--Şifre-->
-                        <PasswordBox Tag="Parola"/>
+                        <PasswordBox Tag="Parola" x:Name="PasswordText"/>
                         <!--Şube ID-->
-                        <TextBox Tag="Şube ID"/>
+                        <TextBox Tag="Şube ID" Text="{Binding SubeID}"/>
                         <!--Giriş Button-->
-                        <Button Content="ileri" 
+                        <Button Content="ileri"
+                                local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=Page}"
                                 FontFamily="{StaticResource regular}"
-                                HorizontalAlignment="Center" Click="Button_Click" />
+                                HorizontalAlignment="Center" />
                                 
 
                     </StackPanel>

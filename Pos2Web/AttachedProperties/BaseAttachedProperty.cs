@@ -22,7 +22,7 @@ namespace Pos2Web
 
         public static Parent GetInstance()
         {
-            return Instance;
+            return instance;
         }
 
         #endregion
@@ -31,7 +31,7 @@ namespace Pos2Web
 
         private static void SetInstance(Parent value)
         {
-            Instance = value;
+            instance = value;
         }
 
 
@@ -41,17 +41,15 @@ namespace Pos2Web
         #region Attached property Definitions
 
         public static readonly DependencyProperty ValueProperty = DependencyProperty.RegisterAttached("Value", typeof(Property), typeof(BaseAttachedProperty<Parent, Property>), new UIPropertyMetadata(new PropertyChangedCallback(OnValuePropertyChanged)));
-
-        public static Parent Instance { get => Instance1; set => Instance1 = value; }
-        public static Parent Instance1 { get => Instance3; set => Instance3 = value; }
-        public static Parent Instance2 { get => Instance3; set => Instance3 = value; }
-        public static Parent Instance3 { get => instance; set => instance = value; }
+        public static Parent Instance { get; private set; } = new Parent();
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            GetInstance().OnValueChanged(d, e);
+            // Call the parent function
+            Instance.OnValueChanged(d, e);
 
-            GetInstance().ValueChanged(d, e);
+            // Call event listeners
+            Instance.ValueChanged(d, e);
         }
 
         public static Property GetValue(DependencyObject d) => (Property)d.GetValue(ValueProperty);
